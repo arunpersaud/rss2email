@@ -106,7 +106,7 @@ def import_name(obj):
       ...
     ValueError: abc
     """
-    pickle = _pickle.dumps(obj)
+    pickle = _pickle.dumps(obj, protocol=3)
     for opcode,arg,pos in _pickletools.genops(pickle):
         if opcode.name == 'GLOBAL':
             return arg
